@@ -1,13 +1,23 @@
 class ContactsController < ApplicationController
 
-  def get_one_contact
-    contacts = Contact.first
-    render json: contacts.as_json
+  def index
+    @contacts = Contact.all
+    render json: @contacts
   end
 
-  def get_all_contacts
-    contacts = Contact.all 
-    render json: contacts.as_json
+  def show
+    @contact = Contact.find_by(id: params["id"])
+    render json: @contact
+  end
+  
+  def create
+    @contact = Contact.create(
+      first_name: params["first_name"],
+      last_name: params["last_name"],
+      email: params["email"],
+      phone_number: params["phone_number"]
+    )
+    render json: @contact
   end
 
 end
