@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-    get "/one_contact" => "contacts#index"
+    get "/contacts" => "contacts#index"
 
     post "/contacts" => "contact#create"
 
@@ -9,5 +9,9 @@ Rails.application.routes.draw do
     patch "/contacts" => "contacts#create"
 
     post "/contacts" => "contacts#create"
+
+    post "/users" => "users#create"
+
+    post "/sessions" => "sessions#create"
 
 end
